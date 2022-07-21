@@ -178,20 +178,72 @@ function help(args) {
 	var repeat = document.createElement("div");
 	var inputValue = input.value;
 	switch(args) {
-		case " google": 
-			line.innerHTML = args + ": use 'google' + keywords to search something on google. <br> example: 'google how to use javascript'";
-			break;
 		case " hello":
 			line.innerText = args + ": returns a simple greeting.";
 			break;
 		case " clear":
 			line.innerText = args + ": clears all content from the terminal.";
+			break;
+		case " date":
+			line.innerText = args + ": returns the current date.";
 			break; 
+		case " help":
+			line.innerText = args + ": returns a list of all available commands.";
+			break;
+		case " google": 
+			line.innerHTML = args + ": use 'google' + keywords to search something on google. <br> example: 'google how to use javascript'";
+			break;
+		case " reddit":
+			line.innerText = args + ": use 'reddit' + keyword to search for a subreddit.";
+			break;
+		case " youtube":
+			line.innerText = args + ": use 'youtube' + kekywords to search something on youtube.";
+			break;
+		case " googlemaps":
+			line.innerText = args + ": use 'googlemaps' + keywords to search something on googlemaps.";
+			break;
+		case " spotify":
+			line.innerText = args + ": use 'spotify' + keywords to search something on spotify.";
+			break;
 		case " style":
 			line.innerText = args + ": changes the style of a selected element.";
 			break;
+		case " theme":
+			line.innerText = args + ": use 'theme' + 'themename' to change the terminal theme.";
+			break;
+		case " cd":
+			line.innerText = args + ": changes the current directory.";
+			break;
+		case " ls":
+			line.innerText = args + ": lists the contents of the current directory.";
+			break;
+		case " pwd":
+			line.innerText = args + ": outputs the present working directory.";
+			break;
+		case " mkdir":
+			line.innerText = args + ": makes a new directory.";
+			break;
+		case " rmdir":
+			line.innerText = args + ": removes a directory.";
+			break;
+		case " mkpassword":
+			line.innerText = args + ": makes a new password for private directories. can only be done when in a private directory.";
+			break;
+		case " make":
+			line.innerText = args + ": use 'make <name> <link> to create a new bookmark.";
+			break;
+		case " go":
+			line.innerText = args + ": use 'go <name>' to open a bookmark in a new tab.";
+			break;
+		case " rm":
+			line.innerText = args + ": use 'rm <name>' to remove a bookmark.";
+			break;
+		case " inspect":
+			line.innerText = args + ": use 'inspect <name>' to output the link associated with a bookmark.";
+			break;
 		default:
-			line.innerHTML = "The following commands are available: <br> hello <br> clear <br> date <br> help <br> google <br> reddit <br> youtube <br> googlemaps <br> spotify <br> style <br> theme <br> cd <br> ls <br> pwd <br> make <br> go <br> rm <br> inspect";
+			line.innerHTML = "The following commands are available: <br> GENERAL <br> hello clear date help <br><br> SEARCHES <br> google reddit youtube googlemaps spotify\
+			<br><br> APPEARANCE <br> style theme <br><br> DIRECTORY <br> cd ls pwd mkdir rmdir mkpassword <br><br> BOOKMARKS/SHORTCUTS <br> make go rm inspect";
 			break;
 	}
 	repeat.innerHTML = "<span class='spandefault'>root@terminal:$ ~</span> " + inputValue;

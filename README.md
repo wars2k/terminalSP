@@ -50,8 +50,6 @@ _terminalSP_ is made entirely out of HTML, CSS, and Javascript, and there are no
 
 `pwd` - present working directory
 
-`rm` - remove a bookmark
-
 `mkdir` - create a new directory
 
 `rmdir` - remove a directory, but doesn’t delete the bookmarks that were inside of it.
