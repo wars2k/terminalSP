@@ -10,7 +10,7 @@ _terminalSP_ is a startpage inspired by many of the wonderful posts on [](https:
 
 _terminalSP_ is made entirely out of HTML, CSS, and Javascript, and there are no back-end requirements. All data is stored in localStorage, so it’s lightweight and easy to work with.
 
-![Contribution guidelines for this project](examples/googleExample.jpg)
+![Contribution guidelines for this project](examples/googleExample.JPG)
 
 ## List of Commands
 
