@@ -2,6 +2,8 @@
 
 _terminalSP_ is a startpage inspired by many of the wonderful posts on [](https://reddit.com/r/startpages/)[https://reddit.com/r/startpages/](https://reddit.com/r/startpages/) . It functions as a start/home page with the following features:
 
+Live demo available at [https://wars2k.github.io/terminalSP/](https://wars2k.github.io/terminalSP/).
+
 *  Easily search common websites - search google, spotify, reddit, youtube, google maps, or add your own custom searches.
 *  Create bookmarks organized in locally-stored directories.
     *   Ability to set “password” protected directories
