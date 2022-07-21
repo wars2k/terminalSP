@@ -1,6 +1,0 @@
-terminal2.0 - 		You can't create new directories inside of the terminal itself.
-terminal2.1 - 		Directories can be created locally, but they can't be nested.
-terminal2.2 - 		nested directories, but they're very buggy. 
-terminal2.3 - 		Redesigning path & localStorage system so that they aren't as buggy. 
-			  localStorage now uses the same naming standards as path.
-			  Eliminated about 80 lines of redundant code.
