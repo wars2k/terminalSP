@@ -205,6 +205,9 @@ function help(args) {
 		case " spotify":
 			line.innerText = args + ": use 'spotify' + keywords to search something on spotify.";
 			break;
+		case " twitch":
+			line.innerText = args + ": use 'twitch' + keywords to search something on twitch."
+			break;
 		case " style":
 			line.innerText = args + ": changes the style of a selected element.";
 			break;
@@ -242,7 +245,7 @@ function help(args) {
 			line.innerText = args + ": use 'inspect <name>' to output the link associated with a bookmark.";
 			break;
 		default:
-			line.innerHTML = "The following commands are available: <br> GENERAL <br> hello clear date help <br><br> SEARCHES <br> google reddit youtube googlemaps spotify\
+			line.innerHTML = "The following commands are available: <br> GENERAL <br> hello clear date help <br><br> SEARCHES <br> google reddit youtube googlemaps spotify twitch\
 			<br><br> APPEARANCE <br> style theme <br><br> DIRECTORY <br> cd ls pwd mkdir rmdir mkpassword <br><br> BOOKMARKS/SHORTCUTS <br> make go rm inspect";
 			break;
 	}

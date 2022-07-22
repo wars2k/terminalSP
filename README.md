@@ -38,6 +38,8 @@ _terminalSP_ is made entirely out of HTML, CSS, and Javascript, and there are no
 
 `spotify` - searches spotify
 
+`twitch` - searches twitch
+
 ### Appearance
 
 `style` - changes specific styles of the page. Doesn’t last between sessions
