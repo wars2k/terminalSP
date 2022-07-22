@@ -281,11 +281,7 @@ function cd(args) {
     			var confirmPassword = localStorage.getItem("password");	       //this retrieves the password from local storage
         		var password = document.getElementById("passwordInput").value; //value of the password input after you hit enter
         		if (password == confirmPassword) {  						   //checks if password input is equal to the password
-        			if(path == "/") {
-        			path = path + args2 + "/";
-        			} else {							   
-             		path = path + args2 + "/";
-             		} 										       				//if so, move to the private directory.
+        			path = path + args2 + "/";										       				//if so, move to the private directory.
              		passwordInputId.remove(); 								   //remove the password input
              		document.getElementById("input").style.display = "inline"; //replace it with the normal input
              		line.innerText = "correct password. entering " + path;
