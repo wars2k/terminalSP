@@ -359,7 +359,7 @@ function go(args) {
 	//window.open(localStorage.getItem(args), '_blank').focus();
 	var name = args.split(" ")[1];
 	name.replace(" ", "");
-	if (localStorage.getItem(name) !== null && localStorage.getItem(shortPathValue).includes(name)) {
+	if (localStorage.getItem(name) !== null && localStorage.getItem(path).includes(name)) {
 	line.innerText = "redirecting to " + localStorage.getItem(name);
 	window.open(localStorage.getItem(name), '_blank').focus();
 		} else {
