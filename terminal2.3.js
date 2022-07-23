@@ -341,11 +341,18 @@ function ls() {
 
 function make(args) {
 	var line = document.createElement("div");
+	var date = new Date();
+	var hour = date.getHours();
+	var min = date.getMinutes();
+	var month = date.getMonth() + 1;
+	var dateDay = date.getDate();
+	var year = date.getFullYear();
 	createEntry();
 	document.getElementById("terminalContent").prepend(line);
 	var name = args.split(" ")[1];  									//split the arguments into two pieces
 	var link = args.split(" ")[2];
-	localStorage.setItem(name, link); 									//set the local storage for the shortcut
+	localStorage.setItem(name, link); 
+	localStorage.setItem(name + ".date", month + "/" + dateDay + "/" + year + " " + hour + ":" + min);									//set the local storage for the shortcut
 	window.existing = localStorage.getItem(path) 						//declares a variable for the list of shortcuts in the current directory
 	window.data = existing ? existing + "<br>" + name : name; 			//adds the newcly created shortcut to this directory's localstorage
 	localStorage.setItem (path, data); 									//resets the local storage with the new content
@@ -407,24 +414,44 @@ function rmdir(args) {
 
 function mkdir(args) {
 	var line = document.createElement("div");
+	var date = new Date();
+	var hour = date.getHours();
+	var min = date.getMinutes();
+	var month = date.getMonth() + 1;
+	var dateDay = date.getDate();
+	var year = date.getFullYear();
 	createEntry();
 	document.getElementById("terminalContent").prepend(line); 														
 	args2 = args.replace(" ","");
 	args3 = args2.toUpperCase();
 	dirPath = path + args2 + "/";
-	localStorage.setItem(dirPath, args3); 									 
+	localStorage.setItem(dirPath, args3); 
+	localStorage.setItem(dirPath + ".date", month + "/" + dateDay + "/" + year + " " + hour + ":" + min);					 
 	window.existing = localStorage.getItem(path); 
 	window.data = existing ? existing + "<br><span class='directory'>" + args2 + "</span>" : args2;
 	localStorage.setItem (path, data); 										 
 	line.innerText = args2 + " directory created.";	
-}	
+
+}
+
+function info() {
+	var line = document.createElement("div");
+	createEntry();
+	document.getElementById("terminalContent").prepend(line);
+	if (localStorage.getItem(path + ".date") == null)
+	{
+		line.innerHTML = "<span class='warning'>ERROR: no info found for " + path;
+	} else {
+		line.innerText = localStorage.getItem(path + ".date");
+	}
+}
 
 function inspect(args) {
 	var line = document.createElement("div");
 	createEntry();
 	document.getElementById("terminalContent").prepend(line);
 	shortArgs = args.replace(" ","");
-	line.innerText = shortArgs + " = " + localStorage.getItem(shortArgs);
+	line.innerHTML = "created at: " + localStorage.getItem(shortArgs + ".date") + "<br>" + shortArgs + " = " + localStorage.getItem(shortArgs);
 }
 
 function mkpassword(args) {
