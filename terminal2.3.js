@@ -336,11 +336,18 @@ function ls() {
 
 function make(args) {
 	var line = document.createElement("div");
+	var date = new Date();
+	var hour = date.getHours();
+	var min = date.getMinutes();
+	var month = date.getMonth() + 1;
+	var dateDay = date.getDate();
+	var year = date.getFullYear();
 	createEntry();
 	document.getElementById("terminalContent").prepend(line);
 	var name = args.split(" ")[1];  									//split the arguments into two pieces
 	var link = args.split(" ")[2];
-	localStorage.setItem(name, link); 									//set the local storage for the shortcut
+	localStorage.setItem(name, link); 
+	localStorage.setItem(name + ".date", month + "/" + dateDay + "/" + year + " " + hour + ":" + min);									//set the local storage for the shortcut
 	window.existing = localStorage.getItem(path) 						//declares a variable for the list of shortcuts in the current directory
 	window.data = existing ? existing + "<br>" + name : name; 			//adds the newcly created shortcut to this directory's localstorage
 	localStorage.setItem (path, data); 									//resets the local storage with the new content
@@ -354,7 +361,7 @@ function go(args) {
 	//window.open(localStorage.getItem(args), '_blank').focus();
 	var name = args.split(" ")[1];
 	name.replace(" ", "");
-	if (localStorage.getItem(name) !== null && localStorage.getItem(shortPathValue).includes(name)) {
+	if (localStorage.getItem(name) !== null && localStorage.getItem(path).includes(name)) {
 	line.innerText = "redirecting to " + localStorage.getItem(name);
 	window.open(localStorage.getItem(name), '_blank').focus();
 		} else {
@@ -439,7 +446,7 @@ function inspect(args) {
 	createEntry();
 	document.getElementById("terminalContent").prepend(line);
 	shortArgs = args.replace(" ","");
-	line.innerText = shortArgs + " = " + localStorage.getItem(shortArgs);
+	line.innerHTML = "created at: " + localStorage.getItem(shortArgs + ".date") + "<br>" + shortArgs + " = " + localStorage.getItem(shortArgs);
 }
 
 function mkpassword(args) {

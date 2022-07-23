@@ -60,6 +60,8 @@ _terminalSP_ is made entirely out of HTML, CSS, and Javascript, and there are no
 
 `mkpassword` - set a password for private directories.
 
+`info` - displays the date & time that a directory was created
+
 ### Bookmark shortcuts
 
 `make` - makes a new shortcut
@@ -68,4 +70,4 @@ _terminalSP_ is made entirely out of HTML, CSS, and Javascript, and there are no
 
 `rm` - removes shortcuts from directories and deletes them from local storage.
 
-`inspect` - displays the link that the shortcut links to
+`inspect` - displays the link that the shortcut links to and the date & time that the shortcut was created
