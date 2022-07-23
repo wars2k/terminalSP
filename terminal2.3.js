@@ -474,6 +474,38 @@ function alertpath() {
 function clearstorage() {
 	localStorage.clear();
 }
+
+
+function weather(args) {
+  	var key = config.MY_KEY;
+  	createEntry();
+  	shortArgs = args.replace(" ","");
+  	shortArgs2 = args.replace(" ","");
+  	fetch('https://api.openweathermap.org/data/2.5/weather?q=' + shortArgs2 + '&units=imperial' + '&appid=' + key)  
+  	.then(function(resp) { return resp.json() }) // Convert data to json
+  	.then(function(data) {
+    drawWeather(data);
+  })
+  	.catch(function() {
+    // catch any errors
+  });
+}
+
+function drawWeather( d ) { 
+	var description = document.createElement("div");
+	var temperature = document.createElement("div");
+	var location = document.createElement("div");
+	var wind = document. createElement("div");
+	document.getElementById("terminalContent").prepend(location);
+	document.getElementById("terminalContent").prepend(description);
+	document.getElementById("terminalContent").prepend(temperature);
+	document.getElementById("terminalContent").prepend(wind);
+	description.innerHTML = d.weather[0].description;
+	temperature.innerHTML = "feels like " + d.main.feels_like + '&deg;' ;
+	location.innerHTML = d.name + " " + d.main.temp + '&deg;';
+	wind.innerHTML = d.wind.speed + " mph";
+}
+
 //runs a command/function when it is entered into the terminal
 input.onkeyup = function(e){
     if(e.keyCode == 13){
