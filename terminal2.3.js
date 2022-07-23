@@ -304,7 +304,12 @@ function cd(args) {
     }
 	} else if (args2 =="" || args2 =="/") {
 		path = "/";
-	} else if (args2.includes("/") && path == "/" && localStorage.getItem(args2) != null ) {
+	} else if (args2 =="../") { //this command is used to move back a directory. 
+		var newPath = path.slice(0, -1); //removes first instance of "/"
+		var newPath2 = newPath.substring(1); //removes last instance of "/"
+		var newPath3 = newPath2.substring(0, newPath2.lastIndexOf("/") + 1); //splits at last instance of "/"
+		path = "/" + newPath3;
+	}else if (args2.includes("/") && path == "/" && localStorage.getItem(args2) != null ) {
 		path = args2;	
 	} else if (args2.includes("/") && localStorage.getItem(path).includes(args2)) {
 		path = path + args2 + "/";
