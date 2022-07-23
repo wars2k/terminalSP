@@ -402,17 +402,37 @@ function rmdir(args) {
 
 function mkdir(args) {
 	var line = document.createElement("div");
+	var date = new Date();
+	var hour = date.getHours();
+	var min = date.getMinutes();
+	var month = date.getMonth() + 1;
+	var dateDay = date.getDate();
+	var year = date.getFullYear();
 	createEntry();
 	document.getElementById("terminalContent").prepend(line); 														
 	args2 = args.replace(" ","");
 	args3 = args2.toUpperCase();
 	dirPath = path + args2 + "/";
-	localStorage.setItem(dirPath, args3); 									 
+	localStorage.setItem(dirPath, args3); 
+	localStorage.setItem(dirPath + ".date", month + "/" + dateDay + "/" + year + " " + hour + ":" + min);					 
 	window.existing = localStorage.getItem(path); 
 	window.data = existing ? existing + "<br><span class='directory'>" + args2 + "</span>" : args2;
 	localStorage.setItem (path, data); 										 
 	line.innerText = args2 + " directory created.";	
-}	
+
+}
+
+function info() {
+	var line = document.createElement("div");
+	createEntry();
+	document.getElementById("terminalContent").prepend(line);
+	if (localStorage.getItem(path + ".date") == null)
+	{
+		line.innerHTML = "<span class='warning'>ERROR: no info found for " + path;
+	} else {
+		line.innerText = localStorage.getItem(path + ".date");
+	}
+}
 
 function inspect(args) {
 	var line = document.createElement("div");
