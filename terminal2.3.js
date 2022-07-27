@@ -190,6 +190,9 @@ function help(args) {
 		case " help":
 			line.innerText = args + ": returns a list of all available commands.";
 			break;
+		case " weather":
+			line.innerText = args + ": returns the current weather for a given location.";
+			break;
 		case " google": 
 			line.innerHTML = args + ": use 'google' + keywords to search something on google. <br> example: 'google how to use javascript'";
 			break;
