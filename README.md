@@ -26,6 +26,8 @@ _terminalSP_ is made entirely out of HTML, CSS, and Javascript, and there are no
 
 `help` - lists commands
 
+`weather` - outputs current weather at a given location
+
 ### Searches
 
 `google` - searches google

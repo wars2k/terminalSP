@@ -190,6 +190,9 @@ function help(args) {
 		case " help":
 			line.innerText = args + ": returns a list of all available commands.";
 			break;
+		case " weather":
+			line.innerText = args + ": returns the current weather for a given location.";
+			break;
 		case " google": 
 			line.innerHTML = args + ": use 'google' + keywords to search something on google. <br> example: 'google how to use javascript'";
 			break;
@@ -474,6 +477,41 @@ function alertpath() {
 function clearstorage() {
 	localStorage.clear();
 }
+
+
+function weather(args) {
+  	var key = config.MY_KEY;
+  	createEntry();
+  	shortArgs = args.replace(" ","");
+  	shortArgs2 = args.replace(" ","");
+  	fetch('https://api.openweathermap.org/data/2.5/weather?q=' + shortArgs2 + '&units=imperial' + '&appid=' + key)  
+  	.then(function(resp) { return resp.json() }) // Convert data to json
+  	.then(function(data) {
+    drawWeather(data);
+  })
+  	.catch(function() {
+    // catch any errors
+  });
+}
+
+function drawWeather( d ) { 
+	var description = document.createElement("div");
+	var temperature = document.createElement("div");
+	var location = document.createElement("div");
+	var wind = document. createElement("div");
+	//var icon = document.createElement("div");
+	//document.getElementById("terminalContent").prepend(icon);
+	document.getElementById("terminalContent").prepend(location);
+	document.getElementById("terminalContent").prepend(description);
+	document.getElementById("terminalContent").prepend(temperature);
+	document.getElementById("terminalContent").prepend(wind);
+	//icon.innerHTML = "<img src='http://openweathermap.org/img/wn/" + d.weather[0].icon + "@2x.png'>";
+	description.innerHTML = d.weather[0].description;
+	temperature.innerHTML = "feels like " + d.main.feels_like + '&deg;' ;
+	location.innerHTML = d.name + " " + d.main.temp + '&deg;';
+	wind.innerHTML = "wind: " + d.wind.speed + " mph";
+}
+
 //runs a command/function when it is entered into the terminal
 input.onkeyup = function(e){
     if(e.keyCode == 13){
