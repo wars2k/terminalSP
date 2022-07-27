@@ -496,14 +496,17 @@ function drawWeather( d ) {
 	var temperature = document.createElement("div");
 	var location = document.createElement("div");
 	var wind = document. createElement("div");
+	//var icon = document.createElement("div");
+	//document.getElementById("terminalContent").prepend(icon);
 	document.getElementById("terminalContent").prepend(location);
 	document.getElementById("terminalContent").prepend(description);
 	document.getElementById("terminalContent").prepend(temperature);
 	document.getElementById("terminalContent").prepend(wind);
+	//icon.innerHTML = "<img src='http://openweathermap.org/img/wn/" + d.weather[0].icon + "@2x.png'>";
 	description.innerHTML = d.weather[0].description;
 	temperature.innerHTML = "feels like " + d.main.feels_like + '&deg;' ;
 	location.innerHTML = d.name + " " + d.main.temp + '&deg;';
-	wind.innerHTML = d.wind.speed + " mph";
+	wind.innerHTML = "wind: " + d.wind.speed + " mph";
 }
 
 //runs a command/function when it is entered into the terminal
